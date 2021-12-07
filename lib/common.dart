@@ -69,9 +69,8 @@ class _SeekBarState extends State<SeekBar> {
         ),
         SliderTheme(
           data: _sliderThemeData.copyWith(
-              inactiveTrackColor: Colors.white,
-              activeTrackColor: Colors.orangeAccent,
-              thumbColor: Colors.orangeAccent),
+            inactiveTrackColor: Colors.transparent,
+          ),
           child: Slider(
             min: 0.0,
             max: widget.duration.inMilliseconds.toDouble(),
@@ -97,12 +96,11 @@ class _SeekBarState extends State<SeekBar> {
           right: 16.0,
           bottom: 0.0,
           child: Text(
-            RegExp(r'((^0*[1-9]\d*:)?\d{2}:\d{2})\.\d+$')
-                    .firstMatch("$_remaining")
-                    ?.group(1) ??
-                '$_remaining',
-            style: TextStyle(color: Colors.white),
-          ),
+              RegExp(r'((^0*[1-9]\d*:)?\d{2}:\d{2})\.\d+$')
+                      .firstMatch("$_remaining")
+                      ?.group(1) ??
+                  '$_remaining',
+              style: Theme.of(context).textTheme.caption),
         ),
       ],
     );
